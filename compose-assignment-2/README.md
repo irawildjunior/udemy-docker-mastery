@@ -4,6 +4,8 @@
 
 [Docker Mastery Lecture](https://www.udemy.com/course/docker-mastery/learn/lecture/6775804)
 
+- Verificação de alteração e propagação
+
 - Use the compose file you created in the last assignment (drupal and postgres) as a starting point.
 - Let's pin image version from Docker Hub this time.
 It's always a good idea to do that so a new major version doesn't surprise you.

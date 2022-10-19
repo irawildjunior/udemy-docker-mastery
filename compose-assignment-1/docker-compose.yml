@@ -1,10 +1,6 @@
-# create your drupal and postgres config here, based off the last assignment
 services:
   drupal:
-    image: drupal:junior-assignement
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: drupal:9.1.14
     volumes:
     - /var/www/html/modules
     - /var/www/html/profiles
