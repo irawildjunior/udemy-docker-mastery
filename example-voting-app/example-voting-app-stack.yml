@@ -20,7 +20,7 @@ services:
     networks:
       - frontend
     deploy:
-      mode: global
+      replicas: 3
   result:
     image: bretfisher/examplevotingapp_result
     ports:

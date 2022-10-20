@@ -1,10 +1,8 @@
+version: '3.9'
 # create your drupal and postgres config here, based off the last assignment
 services:
   drupal:
-    image: drupal:junior-assignement
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: drupal:9.3
     volumes:
     - /var/www/html/modules
     - /var/www/html/profiles
@@ -16,8 +14,20 @@ services:
 
   postgres:
     image: postgres:14.3
+    secrets:
+      - psql_user
+      - psql_password
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/psql_password
+      POSTGRES_USER_FILE: /run/secrets/psql_user
     ports:
       - '5432:5432'
-    environment:
-      POSTGRES_PASSWORD: pass
     restart: always
+
+secrets:
+  psql_user:
+    # file: ./psql_user.txt
+    external: true
+  psql_password:
+    # file: ./psql_password.txt
+    external: true
